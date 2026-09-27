@@ -1,5 +1,12 @@
 export const WHATSAPP_NUMBER = "51985462157";
 
+export const navLinks = [
+  { href: "#cafes", label: "Cafés" },
+  { href: "#origen", label: "Origen" },
+  { href: "#reconocimiento", label: "Reconocimiento" },
+  { href: "#contacto", label: "Contacto" },
+];
+
 export const coffeeVarieties = [
   {
     id: "caturra",
@@ -21,7 +28,7 @@ export const coffeeVarieties = [
     id: "geisha",
     name: "Geisha",
     notes: "Perfil floral y frutal, una experiencia única.",
-    basePrice: 20,
+    basePrice: 25,
     image: "/images/products/geisha.webp",
     imageAlt: "Bolsa de café CaféBle variedad Geisha",
   },
@@ -58,8 +65,8 @@ export function buildWhatsAppUrl({
   const variety = varietyId ? coffeeVarieties.find((item) => item.id === varietyId)! : undefined;
   let message = "Hola, CaféBle. Quiero conocer las opciones disponibles para hacer un pedido.";
 
-  if (varietyId && variety && weightId && grind) {
-    const price = getCoffeePrice(varietyId, weightId);
+  if (variety && weightId && grind) {
+    const price = getCoffeePrice(variety.id, weightId);
     message = `Hola, CaféBle. Quiero pedir café ${variety.name}, ${grind.toLowerCase()}, presentación de ${weightId}. Precio: S/ ${price}.`;
   } else if (variety) {
     message = `Hola, CaféBle. Me interesa el café ${variety.name}. Quiero elegir la presentación y preparación antes de pedir.`;

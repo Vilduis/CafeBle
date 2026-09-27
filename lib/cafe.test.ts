@@ -11,7 +11,7 @@ test("calcula todos los precios por variedad y peso", () => {
   const expected = {
     caturra: [15, 30, 60],
     catimor: [20, 40, 80],
-    geisha: [20, 40, 80],
+    geisha: [25, 50, 100],
   } as const;
 
   for (const variety of coffeeVarieties) {

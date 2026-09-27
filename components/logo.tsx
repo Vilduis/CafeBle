@@ -16,10 +16,9 @@ function CafeBleLogo({ className = "", ...props }: HTMLAttributes<HTMLSpanElemen
   );
 }
 
-function WhatsAppIcon({ title, ...props }: SVGProps<SVGSVGElement> & { title?: string }) {
+function WhatsAppIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg {...props} fill="none" viewBox="0 0 360 362" role={title ? "img" : undefined} aria-hidden={title ? undefined : true}>
-      {title ? <title>{title}</title> : null}
+    <svg {...props} fill="none" viewBox="0 0 360 362" aria-hidden="true">
       <path
         fill="currentColor"
         fillRule="evenodd"

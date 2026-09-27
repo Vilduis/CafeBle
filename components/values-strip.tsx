@@ -21,7 +21,7 @@ export function ValuesStrip() {
             <Icon className="h-7 w-7 stroke-[1.2]" aria-hidden="true" />
             <span>
               <strong className="font-display block text-[1.05rem] leading-tight font-normal">{title}</strong>
-              <span className="mt-1.5 block text-[0.72rem] text-stone">{detail}</span>
+              <span className="mt-1.5 block text-[0.8rem] text-stone">{detail}</span>
             </span>
           </li>
         ))}

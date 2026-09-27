@@ -1,20 +1,14 @@
 import Image from "next/image";
 import { ArrowRight, CreditCard, Heart, Truck } from "lucide-react";
 import { CafeBleLogo, FacebookIcon, WhatsAppIcon } from "@/components/logo";
-import { buildWhatsAppUrl } from "@/lib/cafe";
+import { buildWhatsAppUrl, navLinks } from "@/lib/cafe";
 import coffeeCherries from "@/public/images/products/cerezas_cafe.jpg";
+import { Eyebrow, buttonLight } from "@/components/ui";
 
 const assurances = [
   { icon: Truck, label: "Envíos a todo Perú" },
   { icon: CreditCard, label: "Pago al recibir" },
   { icon: Heart, label: "Atención directa" },
-];
-
-const footerLinks = [
-  { href: "#cafes", label: "Cafés" },
-  { href: "#origen", label: "Origen" },
-  { href: "#reconocimiento", label: "Reconocimiento" },
-  { href: "#contacto", label: "Contacto" },
 ];
 
 export function SiteFooter() {
@@ -27,15 +21,13 @@ export function SiteFooter() {
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(38_21_13/0%)_0%,rgb(38_21_13/62%)_32%,rgb(38_21_13/94%)_60%)] max-lg:bg-[rgb(38_21_13/82%)]" />
 
         <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col justify-center px-5 py-16 sm:px-8 lg:min-h-[360px] lg:px-14 lg:pl-[40%]" data-aos="fade-up">
-          <p className="flex items-center gap-4 text-[0.62rem] font-extrabold tracking-[0.26em] text-[#e4d5ca] uppercase after:h-px after:w-14 after:bg-[#bda89b]">
-            Un café más cerca de ti
-          </p>
+          <Eyebrow tone="light">Un café más cerca de ti</Eyebrow>
 
           <h2 className="font-display mt-5 text-[clamp(2.2rem,4.2vw,3.4rem)] leading-[1.02] font-normal tracking-[-0.035em]">
             Haz tu pedido por WhatsApp
           </h2>
 
-          <p className="mt-4 max-w-[52ch] text-[0.86rem] leading-6 text-[#e4d8cf]">
+          <p className="mt-4 max-w-[52ch] text-pretty text-[0.86rem] leading-6 text-[#e4d8cf]">
             Recibe tu café en casa, de forma rápida y segura.
           </p>
 
@@ -44,13 +36,13 @@ export function SiteFooter() {
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="group/cta inline-flex min-h-12 w-fit items-center gap-3 rounded-md bg-white px-6 text-[0.66rem] font-extrabold tracking-[0.12em] text-espresso uppercase transition hover:-translate-y-0.5 hover:bg-[#efe5dc]"
+              className={`${buttonLight} group/cta w-fit gap-3 px-6 hover:-translate-y-0.5`}
             >
               <WhatsAppIcon className="h-5 w-5" /> Pedir por WhatsApp
               <ArrowRight className="transition-transform group-hover/cta:translate-x-1" aria-hidden="true" size={16} />
             </a>
 
-            <ul className="flex flex-wrap items-center gap-x-6 gap-y-3 text-[0.7rem] text-[#e4d8cf]">
+            <ul className="flex flex-wrap items-center gap-x-6 gap-y-3 text-[0.75rem] text-[#e4d8cf]">
               {assurances.map(({ icon: Icon, label }) => (
                 <li key={label} className="flex items-center gap-2.5 sm:not-first:border-l sm:not-first:border-white/25 sm:not-first:pl-6">
                   <Icon className="shrink-0 stroke-[1.3]" aria-hidden="true" size={17} />
@@ -67,7 +59,7 @@ export function SiteFooter() {
           <CafeBleLogo className="text-[1.6rem]" />
 
           <nav className="flex flex-wrap gap-x-7 gap-y-2 text-[0.78rem] font-medium text-stone" aria-label="Navegación del pie de página">
-            {footerLinks.map((link) => (
+            {navLinks.map((link) => (
               <a key={link.href} className="transition-colors hover:text-espresso" href={link.href}>
                 {link.label}
               </a>
@@ -84,7 +76,7 @@ export function SiteFooter() {
               </a>
             </div>
 
-            <p className="border-sand text-[0.68rem] leading-5 text-stone sm:border-l sm:pl-7">
+            <p className="border-sand text-[0.75rem] leading-5 text-stone sm:border-l sm:pl-7">
               Café que une personas.
               <br />© 2026 CaféBle. Todos los derechos reservados.
             </p>
